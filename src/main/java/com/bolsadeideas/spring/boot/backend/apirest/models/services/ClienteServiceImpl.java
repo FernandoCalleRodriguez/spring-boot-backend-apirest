@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.bolsadeideas.spring.boot.backend.apirest.models.dao.IClienteDao;
 import com.bolsadeideas.spring.boot.backend.apirest.models.emtity.Cliente;
+import com.bolsadeideas.spring.boot.backend.apirest.models.emtity.Region;
 
 @Service
 public class ClienteServiceImpl implements IClienteService {
@@ -49,6 +50,13 @@ public class ClienteServiceImpl implements IClienteService {
 	public Cliente findById(Long id) {
 		// TODO Auto-generated method stub
 		return clienteDao.findById(id).get();
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Region> findAllRegiones() {
+		// TODO Auto-generated method stub
+		return clienteDao.findAllRegiones();
 	}
 
 
